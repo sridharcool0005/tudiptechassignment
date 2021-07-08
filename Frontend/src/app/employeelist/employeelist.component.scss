@@ -1,0 +1,27 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+h3 {
+  color: blue;
+  margin-top: 2%;
+
+}
+
+.col-md-2 {
+  margin-top: 2%;
+}
+ul.pagination.center {
+  margin-left: 350%;
+}

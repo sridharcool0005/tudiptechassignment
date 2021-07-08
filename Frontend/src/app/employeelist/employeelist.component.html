@@ -1,0 +1,70 @@
+
+<div class="container">
+  <h3>Employee Details</h3>
+  <div class="row">
+
+    <form #myform=ngForm>
+    <div class="container">
+      <div class="row">
+
+          <div class="col-md-3">
+            <label>Name</label>
+            <input id="defaultRegisterFormFirstName" class="form-control" placeholder="Enter name" name="name"
+              [(ngModel)]="nameSearch">
+          </div>
+          <div class="col-md-3">
+            <label>Email</label>
+            <input id="defaultRegisterFormFirstName" class="form-control" placeholder="Enter Email" name="email"
+              [(ngModel)]="emailSearch">
+          </div>
+
+          <div class="col-md-2">
+            <button type="button" class="btn btn-primary" (click)="employeefilter(myform.form.value)">Search</button>
+          </div>
+
+      </div>
+    </div>
+  </form>
+
+
+    <table>
+      <tr>
+        <th>S.No</th>
+        <th>FullName</th>
+        <th>MobileNumber</th>
+        <th>Email</th>
+        <th>Designation</th>
+        <th>Salary</th>
+        <th>Address</th>
+
+        <th colspan="2">Action</th>
+      </tr>
+      <tr *ngFor="let data of employees; let id = index;">
+        <td>{{id + 1 }}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.mobilenumber}}</td>
+        <td>{{data.email}}</td>
+        <td>{{data.designation}}</td>
+        <td>{{data.salary}}</td>
+        <td>{{data.address}}</td>
+        <td><a [routerLink]="['/manageemployee/',data._id]"><img
+              src="https://img.icons8.com/bubbles/50/000000/edit.png" /></a></td>
+        <td><a (click)="deleteEmployee(data._id)"><img
+              src="https://img.icons8.com/material-sharp/24/000000/filled-trash.png" /></a></td>
+      </tr>
+
+        <ul class="pagination center">
+          <li class="page-item"><a class="page-link" (click)="getpreviousdata()">Previous</a></li>
+          <li class="page-item"><a class="page-link" (click)="getnextdata()">Next</a></li>
+        </ul>
+
+    </table>
+
+      <span *ngIf="employeeDetails && !employeeDetails.length">
+        <p class="nodata">No Employees found</p>
+      </span>
+  </div>
+</div>
+
+
+
